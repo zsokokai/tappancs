@@ -1,4 +1,22 @@
-<!DOCTYPE html>
+<?php
+    // Alkalmazás logika:
+    include('config.inc.php');
+
+    // adatok összegyűjtése:
+    $kepek = array();
+    $olvaso = opendir($MAPPA);
+    while (($fajl = readdir($olvaso)) !== false) {
+        if (is_file($MAPPA.$fajl)) {
+            $vege = strtolower(substr($fajl, strlen($fajl)-4));
+            if (in_array($vege, $TIPUSOK)) {
+                $kepek[$fajl] = filemtime($MAPPA.$fajl);
+            }
+        }
+    }
+    closedir($olvaso);
+
+    // Megjelenítés logika:
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,14 +27,18 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Találtam állatot | Tappancs</title>
+    <title>Archívum | Tappancs</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
+    <style type="text/css">
+        div#galeria {margin: 0 auto; width: 620px;}
+        div.kep { display: inline-block; }
+        div.kep img { width: 200px; }
+    </style>
 </head>
 
 <body>
@@ -53,15 +75,13 @@
                     <!-- Breaking News -->
                     <div class="col-12 col-sm-6">
                         <div class="breaking-news">
-                            <div id="breakingNewsTicker" class="ticker">
-                            </div>
                         </div>
                     </div>
 
                     <!-- Top Social Info -->
                     <div class="col-12 col-sm-6">
                         <div class="top-social-info text-right">
-                          <a href="https://www.facebook.com/Tappancs.Allatvedo.Alapitvany/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/Tappancs.Allatvedo.Alapitvany/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="https://www.tappancs.hu">Eredeti weboldal</a>
                         </div>
                     </div>
@@ -77,7 +97,7 @@
                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.html"><img src="img/logo.jpg" alt="" width=40%></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -104,7 +124,7 @@
                                           <li><a href="#">Önkéntes munka</a></li>
                                       </ul>
                                     </li>
-                                    <li class="active"><a href="#">Mit tegyek ha...</a>
+                                    <li><a href="#">Mit tegyek ha...</a>
                                       <ul class="dropdown">
                                           <li><a href="talalt.html">Találtam egy állatot</a></li>
                                       </ul>
@@ -115,7 +135,7 @@
                                             <li><a href="#">Támogatóink</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="archivum.php">Archívum</a></li>
+                                    <li class="active"><a href="archivum.php">Archívum</a></li>
                                     <li><a href="feltolt.php">Képek feltöltése</a></li>
                                 </ul>
 
@@ -135,12 +155,12 @@
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/baba.jpg);">
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb5.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcumb-text text-center">
-                        <h2>Találtam egy állatot</h2>
+                        <h2>Archívum</h2>
                     </div>
                 </div>
             </div>
@@ -148,113 +168,54 @@
     </div>
     <!-- ##### Breadcumb Area End ##### -->
 
-    <!-- ##### Blog Area Start ##### -->
-    <div class="blog-area section-padding-80">
+    <!-- ##### Elements Area Start ##### -->
+    <section class="elements-area section-padding-80-0">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-8">
-                    <div class="blog-posts-area">
 
-                        <!-- Single Blog Area -->
-                        <div class="single-blog-area mb-80">
-                            <!-- Thumbnail -->
-                            <div class="blog-thumbnail">
+                <!-- ********** Buttons ********** -->
 
-                            </div>
-                            <!-- Content -->
-                            <div class="blog-content">
-                                <a href="#" class="post-title">Találtam egy állatot</a>
-                                </div>
-                                <p>Ha Szegeden, Szeged környékén talált egy kutyát vagy cicát, a következőket érdemes tenni (általánosságban a teendők minden településre igazak):
+                <!-- ********** Progress Bars & Accordions ********** -->
+                <div class="col-12">
+                </div>
 
-<ul>
-Állatorvos segítségével, aki azonnal tudja ellenőrizni, hogy a kutyában található-e chip, regisztrált-e, ha igen a gazda címe és telefonszáma is azonnal látható, leggyorsabban hazajuttatni a kutyust az ő segítségével tudjuk, leolvasás ingyenes. Fontos, hogy a chip-hez tartozó személyes adatokat csak állatorvos tudja megnézni.
-<p>
-<li>Állatvédő szervezetek segítségével, akik értesítik chipolvasóval rendelkező önkénteseiket. Ebben az esetben fel kell készülni arra, hogy nem fog megtörténni azonnal a leolvasás, mert a legtöbb önkéntes dolgozik (8 órás munkarendben), illetve még el kell jutnia az adott helyre, ahol látták vagy épp tartózkodik a talált négylábú. Ha eredményes a chipolvasás, neki még értesíteni kell egy állatorvost, akinek be kell azonosítani az állatot. Előfordul, hogy nem tudja az állatorvos azonnal vállalni az adatbázisban történő megnézést, csak később tud vissza szólni. Így több órába, vagy napba is beletelik, míg azonosítására került a chip.
-  <p>
-<li>Fix chipleolvasó helyek a megadott nyitvatartási időn belül. Itt a dolgozók segítenek a chipet leolvasni, de ők is csak állatorvos segítségével tudják beazonosítani a gazdát:
-  <p>
-<li>Tappancs Állatvédő Alapítvány menhelye: Szeged, Sia dűlő 20.,
-<p>
-<li>7-15:30 között. CSAK chipleolvasás, befogadás várólista alapján!
-<p>
-<li>Kedves Presszó: Szeged, József Attila sgt. 63.,
-<p>
-<li>hétfőtől csütörtökig 10-24 között, pénteken 10-01 között, szombaton 11-01 között, vasárnap 11-22 között.
-<p>
-<li>City Pan Fish & Chips: Szeged Nagyáruház Passzázs sor, Szeged, Jókai u. 7-9.,
-<p>
-<li>hétfőtől péntekig 10-21 között, szombaton 11-19 között (chipolvasás a nyitást megelőző 1 órában már lehetséges).
-<p>
-<li>Rio Cafe: 6726 Szeged, Népkert sor 1.
-
-hétfőtől csütörtökig: 8.00-24.00 között, pénteken 8.00-01.00 között, szombaton 9.00-01.00 között, vasárnap 9.00-24.00 között.
-Ha az azonosítás sikeres és a gazdi elérhető, az állat haza jutását még meg kell oldani. Ha a kutyus bekerül a menhelyre a gazdája, nem tudja azonnal vissza kapni, erre nagyon oda kell figyelni.
-Ha a gazdi nem tud azonnal menni a kedvencéért, próbáljuk meg biztonságba helyezni.
-</ul>
-
-<ul>Ha nem járt sikerrel chipolvasás:<p>
-
-<li>Helyi állatvédőket (Szegeden a Tappancsot) értesíteni, hátha már keresi a gazdája:
-<p>
-<li>Talált kutya esetén a Tappancsnál a +36 70 380 9922 telefonszámon, ha megoldott az elhelyezése, vagy a felügyelete, menhelyi várólistára venni.
-<p>
-<li>Talált cica esetén a Tappancsnál a +36 70 380 2281 telefonszámon
-<p>
-
-<li>SMS-t küldeni helyi rádióba (sok helyen csak SMS-t fogadnak), Szegeden a
-<p>
-<li>Rádió 88-ba: +36 30 2998888
-<p>
-
-<li>Helyi gyepmesteri telepen érdeklődni, hogy keresnek-e hasonló kutyát. Szegeden a +36 20 360 9846 telefonon
-<p>
-
-<li>Facebookon fényképes bejegyzést készíteni ami tartalmazza a kutya ismertető jeleit, a megtalálás helyszínét és hogy a gazda kinél és hol keresheti a kutyát. Ezt a bejegyzést megosztani a Tappancs Állatvédő Alapítvány Facebook oldalán és a Talált és elveszett állatok Szegeden és környékén Facebook csoportban.
-<p>
-
-<li>Ha lehetséges, pár hétre befogadni vagy ideiglenes befogadót keresni, és plakátokat kihelyezni a kutya jellemzőivel, fényképével, elérhetőséggel. Ha a kutyáért nem jelentkezik senki, jelezni a menhely felé.
-<p>
-
-<li>Már megtaláláskor érdemes várólistára vetetni, mivel változás esetén onnan leiratkozhat is. Amennyiben biztossá válik, hogy a menhely lesz az egyetlen megoldás, érdemes megkezdeni az oltási programot, még mielőtt a kutya bekerül. Ezt egyeztetni kell a menhely vezetőjével: +36 70 380 6966.
-<p>
-
-<li>Lehetőleg digitális fotós felhívásokat feltenni Internetes honlapokba, kutyás, cicás fórumokba.
-<p>
-
-<li>Tappancs lakossági gazdikeresője: ezen a honlapon regisztráció és bejelentkezés után azonnal lehetséges (itt tud regisztrálni, belépés után itt lehet felvinni az adatot, itt fog látszódni a listában)
-<li>www.allatok.info adminisztrátoránál jelezni az adatokat
-<li>www.netboard.hu kutyás fórumának megfelelő helyére felvenni (település illetve fajta szerint)
-<p>
-
-<li>Helyi napilapban meghirdetni: Szegeden a Délmagyarországban: 62/567-835 - talált állat ingyenes
-<li>Helyi hirdetési újságban meghirdetni. Szegeden a Déli Apró (Szilágyi utca 2. www.deliapro.hu)
-<p>
-
-<li>Ha más megoldás nincs, utcán etetni, itatni, féreghajtót adni neki és folyamatosan kapcsolatot tartani az állatvédőkkel.
-<li>Talált kutyát akkor érdemes várólistára vetetni a Tappancsnál, ha legalább pár napja ugyanott fordul elő, vagy van ideiglenes befogadó, illetve ha sérült.
-<p>
-
-<li>Kérjük, legalább egy SMS-ben jelezzék a megfelelő telefonszámunkra, ha megoldódott a kutyus vagy a cica sorsa!
-</ul>
-</p>
-
-                            </div>
-                        </div>
-
-
-
+                <!-- ##### Accordians ##### -->
+                <div class="col-12 col-lg-6">
+                  <div id="galeria">
+                  <h1>Galéria</h1>
+                  <?php
+                  arsort($kepek);
+                  foreach($kepek as $fajl => $datum)
+                  {
+                  ?>
+                      <div class="kep">
+                          <a href="<?php echo $MAPPA.$fajl ?>">
+                              <img src="<?php echo $MAPPA.$fajl ?>">
+                          </a>
+                          <p>Név:  <?php echo $fajl; ?></p>
+                          <p>Dátum:  <?php echo date($DATUMFORMA, $datum); ?></p>
+                      </div>
+                  <?php
+                  }
+                  ?>
+                  </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-4">
+                <!-- ##### Tabs ##### -->
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Blog Area End ##### -->
+                <!-- ********** Milestones ********** -->
 
+
+                <!-- ********** Loaders ********** -->
+
+                <!-- ********** Icon Boxes ********** -->
+
+    <!-- ***** Elements Area End ***** -->
+
+    <!-- ##### Follow Us Instagram Area Start ##### -->
+
+    <!-- ##### Follow Us Instagram Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
