@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Kezdőoldal | Tappancs</title>
+    <title>Hogyan segíthet | Tappancs</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -34,8 +34,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <form action="https://www.google.hu/search?hl=en-GB&source=hp&q=" method="get" role="search">
-                        <input type="search" placeholder="Keresés..." name="q" id="s" autocomplete="off">
+                    <form action="#" method="post">
+                        <input type="search" name="search" placeholder="Type any keywords...">
                         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </form>
                 </div>
@@ -53,6 +53,8 @@
                     <!-- Breaking News -->
                     <div class="col-12 col-sm-6">
                         <div class="breaking-news">
+                            <div id="breakingNewsTicker" class="ticker">
+                            </div>
                         </div>
                     </div>
 
@@ -92,8 +94,8 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Gazdit keresünk!</a></li>
-                                    <li><a href="#">Hogyan segíthet?</a>
+                                    <li><a href="index.html">Gazdit keresünk!</a></li>
+                                    <li class="active"><a href="#">Hogyan segíthet?</a>
                                       <ul class="dropdown">
                                           <li><a href="segit.html">Hogyan segíthet?</a></li>
                                           <li><a href="#">Adó 1 százalék</a></li>
@@ -131,126 +133,97 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
-    <!-- ##### Hero Area Start ##### -->
-    <section class="hero-area">
-        <div class="hero-slides owl-carousel">
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(img/selyem.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Selyem</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Az előző tulajdonos a tanyán hagyta a kutyákat. Ezek után az sem meglepő, hogy a kutyusok chippel sem rendelkeznek. Sumák és Selyem nálunk viszont új életet kezdhet, és igyekszünk mihamarabb megtalálni a számukra tökéletes családot.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(img/sumak.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Sumák</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Az előző tulajdonos a tanyán hagyta a kutyákat. Ezek után az sem meglepő, hogy a kutyusok chippel sem rendelkeznek. Sumák és Selyem nálunk viszont új életet kezdhet, és igyekszünk mihamarabb megtalálni a számukra tökéletes családot.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(img/alf.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Alf</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">Alf egy elhagyatott házban éldegélt, ahol magára hagyták. Így történhetett, hogy szépen kifogyott nyakörvéből, és elszabadult láncáról. Egy önkéntesünknek hála pedig a várólista kivárása után, gondozásunkba került ez a kedves, nagy mackó.</p>
-                            </div>
-                        </div>
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/baba.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-text text-center">
+                        <h2>Hogya segíthet?</h2>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- ##### Hero Area End ##### -->
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
 
-    <!-- ##### Top Catagory Area Start ##### -->
-    <section class="top-catagory-area section-padding-80-0">
-
-    </section>
-    <!-- ##### Top Catagory Area End ##### -->
-
-    <!-- ##### Best Receipe Area Start ##### -->
-    <section class="best-receipe-area">
+    <!-- ##### Blog Area Start ##### -->
+    <div class="blog-area section-padding-80">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="section-heading">
-                        <h3>LEGFRISSEBB BLOGBEJEGYZÉSEINK
-                          <p>Történetek a menhely életéről</h3>
-                    </div>
-                </div>
-            </div>
+                <div class="col-12 col-lg-8">
+                    <div class="blog-posts-area">
 
-            <div class="row">
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="img/macskaland.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Macskalandok 2019. okt. 28. - nov. 10.</h5>
-                            </a>
+                        <!-- Single Blog Area -->
+                        <div class="single-blog-area mb-80">
+                            <!-- Thumbnail -->
+                            <div class="blog-thumbnail">
+
+                            </div>
+                            <!-- Content -->
+                            <div class="blog-content">
+                                <a href="#" class="post-title">Hogyan segíthet?</a>
+                                </div>
+                                <p>A különböző rendezvényeken nagyon sokan kérdezik, hogy hogyan segíthetnek.<p>
+
+Menhelyünk költségvetése szinte kizárólag a lakossági/céges adományokra épül. Működésünk, az egyre növekvő kutyalétszám nagyon sok pénzt felemészt annak ellenére, hogy nagyon sok tárgyi adományt és önkéntesi munkát is kapunk.
+<p>
+Ha támogatni szeretné az elhagyott, bántalmazott kutyusok mentését, kérjük adományát a városban elhelyezett <b>perselyekbe</b> helyezze vagy alapítványi <b>számlaszámunkra</b> utalja. Minden kis összeget nagy köszönettel fogadunk, hisz minden adomány lehetőséget ad arra, hogy egy új kutya kaphasson esélyt.
+<p>
+<b>Az alapítványnak felajánlott adó 1%-ok</b> menhelyünk egyik fő bevételi forrását jelentik, ezért kérjük, ha elégedettek munkánkkal, segítsenek továbbra is ezúton a fenntartásban és a fejlesztésben. letölthető nyilatkozat (link)
+<p>
+<b>Tárgyi adományok</b> (eledel, póráz, kutyajáték) vagy a menhely működését segítő eszközök, építőanyagok; esetleg adományért adható promóciós tárgyak felajánlásával is segítheti az alapítványt.
+<p>
+Ha szívesen támogatná a menhelyen élő kutyákat, de otthonában nem tud állatot tartani,<b> "virtuális örökbefogadással", havi rendszeres adománnyal</b> megteheti ezt is, ehhez csekket emailen vagy telefonon rendelhet tőlünk. Havi 9.000 Ft-al egy kutya havi ételadagját és ellátását fedezheti, egy kennel fenntartása átlagosan 35.000 Ft-ba kerül. A menhelyen bármikor szívesen látjuk, hogy személyesen is megismerje védenceit és a menhely működését.
+<p>
+<b>Tappancsos ajándéktárgyakat</b> (kulcstartó, toll, póló, telefontartó nyakpánt, hűtőmágnes, bögre) adunk adományáért cserébe, melyekhez rendezvényeinken juthat hozzá vagy emailen rendelhet meg.
+<p>
+Számlaszámunk: <b>UniCredit Bank 10918001-00000019-48600008</b><br>
+(kérésre csekket küldünk).
+<p>
+<b>Külföldről így utalhat (kérjük ide forintot utaljon):</b>
+<p>
+SWIFT (BIC) kód: BACXHUHB<br>
+IBAN számunk: HU06 1091 8001 0000 0019 4860 0008<br>
+UniCredit Bank, 6722 Szeged, Kossuth Lajos sgt. 18-20.
+<p>
+<b>EURO számlánk megváltozott</b> (kérjük ide euro pénznemben utaljon):
+<p>
+SWIFT (BIC) kód: BACXHUHB<br>
+IBAN: HU42 1091 8001 0000 0019 4860 0039<br>
+UniCredit Bank, 6722 Szeged, Kossuth Lajos sgt. 18-20.
+<p>
+Biztonságos online bankkártyás adományozás:
+<p>
+egyszeri adakozás;<br>
+rendszeres bankkártyás adományozás indítása (a fenti link, és a "rendszeres adományozás" gomb).
+<p>
+<b>Adhatvonal</b>: 13600 hívása és a kód: 38, vagy SMS a 13600 számra, SMS szövege: 38
+(Adatvonal részletes tájékoztató)
+<p>
+<b>Paypal online adományozás a tappancstanya kukac gmail.com email címre vagy ide kattintva:</b> (dombornyomott bankkártyával is):
+<p>
+Mindennemű támogatását nagyra értékelünk, és köszönjük!
+<p>
+Tappancs Állatvédő Alapítvány<br>
+Adószám: 18469453-1-06
+</p>
+
+                            </div>
                         </div>
+
+
+
                     </div>
                 </div>
 
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="img/kutyamese.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Kutyamesék 2019. nov. 4-10.</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="img/macskaland2.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Macskalandok 2019. okt. 14-27.</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-12 col-lg-4">
 
                 </div>
             </div>
         </div>
-    </section>
-    <!-- ##### Best Receipe Area End ##### -->
-
-    <!-- ##### CTA Area Start ##### -->
-
-    <!-- ##### CTA Area End ##### -->
-
-    <!-- ##### Small Receipe Area Start ##### -->
-
-    <!-- ##### Small Receipe Area End ##### -->
-
-    <!-- ##### Quote Subscribe Area Start ##### -->
-
-    <!-- ##### Quote Subscribe Area End ##### -->
+    </div>
+    <!-- ##### Blog Area End ##### -->
 
     <!-- ##### Follow Us Instagram Area Start ##### -->
 
